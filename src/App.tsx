@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  Box,
+  Container,
+  IconButton,
+  ImageListItem,
+  ImageListItemBar,
+} from "@mui/material";
+import "./App.css";
+import appLogo from "/logo.png";
+import { Info as InfoIcon } from "@mui/icons-material";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Container
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <Box>
+        <img style={{ objectFit: "contain" }} src={appLogo} alt="Vite logo" />
+      </Box>
+      <main>
+        <Container sx={{ py: 8 }} maxWidth="md">
+          <ImageListItem>
+            <img src="https://placehold.co/600x400" loading="lazy" />
+            <ImageListItemBar
+              title="Title"
+              subtitle="Subtitle"
+              actionIcon={
+                <IconButton
+                  sx={{ color: "rgba(255, 255, 255, 0.54)" }}
+                  aria-label="title"
+                >
+                  <InfoIcon />
+                </IconButton>
+              }
+            />
+          </ImageListItem>
+        </Container>
+      </main>
+    </Container>
+  );
 }
 
-export default App
+export default App;
